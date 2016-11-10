@@ -14,6 +14,8 @@
 #include <vector>
 using namespace std;
 #include "City.hpp"
+#include "Citizen.hpp"
+// I affirm that all code given below was written solely by me, Heidi Wiebers, and that any help I received adhered to the rules stated for this exam.
 
     
     //Creates a new city with the given name
@@ -45,13 +47,13 @@ string City::getCityName()
     //Returns the number of citizens in this city
 int City::populationSize()
 {
-    
+    return 0;
 }
     
     //Returns the citizen at the given index.
-City::Citizen* getCitizenAtIndex(int index)
+Citizen* City::getCitizenAtIndex(int index)
 {
-    
+    return 0;
 }
     
     //Adds a citizen to this city. You will need to
@@ -63,18 +65,17 @@ void City::addCitizen(Citizen* citizen)
 }
     
     //Returns the citizen with the given id.
-City::Citizen* getCitizenWithId(int id)
+Citizen* City::getCitizenWithId(int id)
 {
-    
+    return 0;
 }
-    
-    //Returns a vector of citizens that all have
-    //the given color as their favorite color.
-    //For example, if color is “Blue” this will return all citizens
-    //for this city who’s favorite color is Blue.
-City::vector<Citizen*> getCitizensForFavoriteColor(string color)
+//Returns a vector of citizens that all have
+//the given color as their favorite color.
+//For example, if color is “Blue” this will return all citizens
+//for this city who’s favorite color is Blue.
+vector<Citizen*> City::getCitizensForFavoriteColor(string color)
 {
-    
+    return Citizen;
 }
 
 

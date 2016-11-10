@@ -14,6 +14,7 @@
 #include <vector>
 using namespace std;
 #include "Citizen.hpp"
+// I affirm that all code given below was written solely by me, Heidi Wiebers, and that any help I received adhered to the rules stated for this exam.
 
 //Creates a new Citizen object with the passed in
 //id, name, and favorite color
@@ -21,7 +22,8 @@ using namespace std;
 //but you can change their favorite color
 Citizen::Citizen(int id,string firstName, string lastName, string color)
 {
-    
+    id= id;
+    firstName = firstName;
 }
 
 //Creates a new Citizen object by copying data from the
@@ -58,7 +60,7 @@ string Citizen::getFavoriteColor()
 //Sets the favorite color for this citizen
 void Citizen::setFavoriteColor(string color)
 {
-    color = color;
+    Color = color;
 }
 
 

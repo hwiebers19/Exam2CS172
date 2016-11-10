@@ -21,11 +21,14 @@
 #include <vector>
 using namespace std;
 #include <stdio.h>
+#include "Citizen.hpp"
+// I affirm that all code given below was written solely by me, Heidi Wiebers, and that any help I received adhered to the rules stated for this exam.
 
 class City
 {
 private:
     string cityName;
+    
 public:
     
     //Creates a new city with the given name
