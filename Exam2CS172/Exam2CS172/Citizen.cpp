@@ -17,8 +17,8 @@ using namespace std;
 // I affirm that all code given below was written solely by me, Heidi Wiebers, and that any help I received adhered to the rules stated for this exam.
 
 
-/*Creates a new Citizen object with the passed in id, name, and favorite color
-//Once a citizen is created, you can't change their id or name but you can change their favorite color*/
+
+//new person and gives them Id, name and favorite color using a pointer
 Citizen::Citizen(int id,string firstName, string lastName, string color)
 {
     this->id = id;

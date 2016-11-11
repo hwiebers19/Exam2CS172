@@ -26,7 +26,7 @@ int main()
      */
     
     int errors = 0;
-    
+
     //Create the cities
     City* katchem = new City("Katchem");
     City* spokane = new City("Spokane");
@@ -34,6 +34,10 @@ int main()
     
     //Check if we need to add citizens to Spokane
     //Bonus point if you can tell me why I picked these names and Ids ;)
+    
+    //are these people singers like George Strait?
+    
+    
     if (spokane->populationSize() == 0)
     {
         Citizen* brandon = new Citizen(1, "Brandon", "Semenuk", "Green");
@@ -59,6 +63,9 @@ int main()
     
     //Check if we need to add citizens to Katchem
     //Bonus point if you can tell me why I picked these names ;)
+    
+    // are these people football players?
+    
     if (katchem->populationSize() == 0)
     {
         Citizen* Bartley = new Citizen(6, "Bartley", "Andre", "Green");
@@ -169,6 +176,7 @@ int main()
     delete katchem;
     delete spokane;
     delete seattle;
+    
     
     return 0;
 }

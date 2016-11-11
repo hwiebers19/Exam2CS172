@@ -26,32 +26,44 @@ string getaString(string& aString)
     return aString;
     
 }
-    
-/*Creates a new city with the given name When the city is created you need to restore
-it's population from a file. Hint: You will want to make the file name
-be based on the name of the city.*/
+
+//makes the city and the city name
 City::City(string cityName)
 {
+    //initalize
     string line;
     ifstream fix;
+    int personId = 0;
+    string personFirstName;
+    string personLastName;
+    string personFavoriteColor;
     this->cityName = cityName;
     string fileName;
+    //open file with city information
     fileName = cityName + ".txt";
-    fix.open(fileName.c_str());
-        
+    fix.open(fileName.c_str(),fstream::out | fstream::app);
+    //if cant open then creates one
     if (!fix.fail())
     {
         while (getline(fix, line))
         {
-        citizens->push_back(Citizen(stoi(getaString(line)), getaString(line), getaString(line), getaString(line)));
+            //this needs to put the people into the files for their city with their names and favorite colors
+            personId = stoi(getaString(line));
+            personFirstName = getaString(line);
+            personLastName = getaString(line);
+            personFavoriteColor = getaString(line);
+            
+            citizens->push_back(Citizen(personId, personFirstName, personLastName, personFavoriteColor));
         }
     }
     
+    
+    fix.close();
 
 }
+//I dont think this part works. I dont think Im adding to the file right.
 
-/*This is the destructor for the city.  When this city is destroyed, save the population of
-the city to a file so that you can restore it in the constructor the next time that a city with this name is created.*/
+//allows you to keep the info for a city but gets rid of it when not in use
 City::~City()
 {
     ofstream keep;
@@ -82,15 +94,14 @@ Citizen* City::getCitizenAtIndex(int index)
 {
     return &(*citizens)[index];
 }
-    
-/*Adds a citizen to this city. You will need to make a copy of this citizen so that you make
-sure to keep it around for the life of the city.*/
+
+//uses a pointer to make copy of person and adds them to city
 void City::addCitizen(Citizen* citizen)
 {
     citizens->push_back(Citizen(citizen));
 }
 
-//returns citizen with given id.
+//returns citizen with given id if found
 Citizen* City::getCitizenWithId(int id)
 {
     for (int i = 0; i < citizens->size(); i++)
@@ -100,14 +111,12 @@ Citizen* City::getCitizenWithId(int id)
             return &((*citizens)[i]);
         }
     }
-    
-    cout << "No citizen with ID " << id << " was found." << endl;
     return nullptr;
         
 }
 
-/*Returns a vector of citizens that all have the given color as their favorite color.
-For example, if color is “Blue” this will return all citizens for this city who’s favorite color is Blue.*/
+
+//finds and returns the people with given favorite color
 vector<Citizen*> City::getCitizensForFavoriteColor(string color)
 {
     vector <Citizen*> sameFavoriteColorCitizens;
