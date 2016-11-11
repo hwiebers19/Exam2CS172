@@ -12,6 +12,7 @@
 #include <string>
 #include <ctime>
 #include <cctype>
+#include <fstream>
 #include <vector>
 using namespace std;
 #include "Citizen.hpp"

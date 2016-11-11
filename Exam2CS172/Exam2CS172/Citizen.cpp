@@ -16,51 +16,55 @@ using namespace std;
 #include "Citizen.hpp"
 // I affirm that all code given below was written solely by me, Heidi Wiebers, and that any help I received adhered to the rules stated for this exam.
 
-//Creates a new Citizen object with the passed in
-//id, name, and favorite color
-//Once a citizen is created, you can't change their id or name
-//but you can change their favorite color
+
+/*Creates a new Citizen object with the passed in id, name, and favorite color
+//Once a citizen is created, you can't change their id or name but you can change their favorite color*/
 Citizen::Citizen(int id,string firstName, string lastName, string color)
 {
-    id= id;
-    firstName = firstName;
+    this->id = id;
+    this->firstName = firstName;
+    this->lastName = lastName;
+    this->color = color;
 }
 
-//Creates a new Citizen object by copying data from the
-//passed in citizen
+
+//uses data and pointers to create object citizen
 Citizen::Citizen(Citizen* citizen)
 {
-    
+    id = citizen->getId();
+    firstName = citizen->getFirstName();
+    lastName = citizen->getLastName();
+    color = citizen->getFavoriteColor();
 }
 
-//Returns the first name of this citizen
+//returns first name of the citizen
 string Citizen::getFirstName()
 {
     return firstName;
 }
 
-//Returns the last name of this citizen
+//returns last name of the citizen
 string Citizen::getLastName()
 {
     return lastName;
 }
 
-//Returns the id for this citizen
+//returns id for the citizen
 int Citizen::getId()
 {
     return id;
 }
 
-//Returns the favorite color for this citizen
+//returns favorite color for the citizen
 string Citizen::getFavoriteColor()
 {
     return color;
 }
 
-//Sets the favorite color for this citizen
+//sets favorite color for the citizen using a pointer
 void Citizen::setFavoriteColor(string color)
 {
-    Color = color;
+    this->color = color;
 }
 
 

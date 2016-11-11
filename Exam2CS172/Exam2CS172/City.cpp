@@ -11,71 +11,81 @@
 #include <string>
 #include <ctime>
 #include <cctype>
+#include <fstream>
 #include <vector>
 using namespace std;
 #include "City.hpp"
 #include "Citizen.hpp"
 // I affirm that all code given below was written solely by me, Heidi Wiebers, and that any help I received adhered to the rules stated for this exam.
 
+//function to get the string being used
+string getaString(string& aString)
+{
+    string AString = aString.substr(0, aString.at(' '));
+    aString.erase(0, aString.at(' ') + 1);
+    return aString;
     
-    //Creates a new city with the given name
-    //When the city is created you need to restore
-    //it's population from a file.
-    //Hint: You will want to make the file name
-    //be based on the name of the city.
+}
+    
+/*Creates a new city with the given name When the city is created you need to restore
+it's population from a file. Hint: You will want to make the file name
+be based on the name of the city.*/
 City::City(string cityName)
 {
     
 }
-    
-    //This is the destructor for the city.  When
-    //this city is destroyed, save the population of
-    //the city to a file so that you can restore
-    //it in the constructor the next time that
-    //a city with this name is created.
+
+/*This is the destructor for the city.  When this city is destroyed, save the population of
+the city to a file so that you can restore it in the constructor the next time that a city with this name is created.*/
 City::~City()
 {
+    ofstream keep;
+    keep.open(fileName.c_str());
     
+    for (int i = 0; i < citizens->size(); i++)
+    {
+        keep << to_string((*citizens)[i].getId()) << " " << (*citizens)[i].getFirstName() << " " << (*citizens)[i].getLastName() << " " << (*citizens)[i].getFavoriteColor() << " " << endl;
+    }
+    
+    delete citizens;
 }
     
-    //Returns the city name
+//returns city name
 string City::getCityName()
 {
     return cityName;
 }
     
-    //Returns the number of citizens in this city
+//returns number of citizens in city
 int City::populationSize()
 {
-    return 0;
+    return citizens->size();
 }
     
-    //Returns the citizen at the given index.
+//returns citizen at given index.
 Citizen* City::getCitizenAtIndex(int index)
 {
-    return 0;
+    return &(*citizens)[index];
 }
     
-    //Adds a citizen to this city. You will need to
-    //make a copy of this citizen so that you make
-    //sure to keep it around for the life of the city.
+/*Adds a citizen to this city. You will need to make a copy of this citizen so that you make
+sure to keep it around for the life of the city.*/
 void City::addCitizen(Citizen* citizen)
 {
-    
+    citizens->push_back(Citizen(citizen));
 }
-    
-    //Returns the citizen with the given id.
+
+//returns citizen with given id.
 Citizen* City::getCitizenWithId(int id)
 {
     return 0;
 }
-//Returns a vector of citizens that all have
-//the given color as their favorite color.
-//For example, if color is “Blue” this will return all citizens
-//for this city who’s favorite color is Blue.
+/*Returns a vector of citizens that all have the given color as their favorite color.
+For example, if color is “Blue” this will return all citizens for this city who’s favorite color is Blue.*/
 vector<Citizen*> City::getCitizensForFavoriteColor(string color)
 {
-    return Citizen;
+    vector <Citizen*> sameFavoriteColorCitizens;
+    return vector<Citizen*>();
 }
 
 
