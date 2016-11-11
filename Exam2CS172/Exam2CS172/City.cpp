@@ -32,7 +32,22 @@ it's population from a file. Hint: You will want to make the file name
 be based on the name of the city.*/
 City::City(string cityName)
 {
+    string line;
+    ifstream fix;
+    this->cityName = cityName;
+    string fileName;
+    fileName = cityName + ".txt";
+    fix.open(fileName.c_str());
+        
+    if (!fix.fail())
+    {
+        while (getline(fix, line))
+        {
+        citizens->push_back(Citizen(stoi(getaString(line)), getaString(line), getaString(line), getaString(line)));
+        }
+    }
     
+
 }
 
 /*This is the destructor for the city.  When this city is destroyed, save the population of
@@ -78,8 +93,19 @@ void City::addCitizen(Citizen* citizen)
 //returns citizen with given id.
 Citizen* City::getCitizenWithId(int id)
 {
-    return 0;
+    for (int i = 0; i < citizens->size(); i++)
+    {
+        if ((*citizens)[i].getId() == id)
+        {
+            return &((*citizens)[i]);
+        }
+    }
+    
+    cout << "No citizen with ID " << id << " was found." << endl;
+    return nullptr;
+        
 }
+
 /*Returns a vector of citizens that all have the given color as their favorite color.
 For example, if color is “Blue” this will return all citizens for this city who’s favorite color is Blue.*/
 vector<Citizen*> City::getCitizensForFavoriteColor(string color)
